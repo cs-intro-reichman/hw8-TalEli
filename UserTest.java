@@ -50,6 +50,7 @@ public class UserTest {
         System.out.println("\n...Adding Boaz, Maya, Talia, Alex, and Dror to the follows list of Orly...");
         orly.addFollowee("Boaz");
         orly.addFollowee("Maya");
+        orly.addFollowee("Alex");
         orly.addFollowee("Talia");
         orly.addFollowee("Dror");
         System.out.println(orly);
