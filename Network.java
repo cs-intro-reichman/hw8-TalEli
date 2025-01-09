@@ -68,6 +68,14 @@ public class Network {
         if (name1 == null || name2 == null || name1.equalsIgnoreCase(name2)){
             return false;
         }
+
+        if (getUser(name2) == null || getUser(name1) == null){
+            return false;
+        }
+
+        if (getUser(name1).follows(name2)){
+            return false;
+        }
         int index = 0; 
         while (index < userCount){
             if (users[index].getName().equals(name1)){
