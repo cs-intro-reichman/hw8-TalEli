@@ -68,12 +68,13 @@ public class User {
      * does nothing and returns false;
      */
     public boolean addFollowee(String name) {
-        if (name == null) {
+        if (name == null || name.equalsIgnoreCase(this.getName())) {
             return false;
         }
         if (fCount == 10) {
             return false;
         }
+        
         if (follows(name)) {
             return false;
         }
