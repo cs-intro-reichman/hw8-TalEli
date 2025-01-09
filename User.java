@@ -68,16 +68,16 @@ public class User {
      * does nothing and returns false;
      */
     public boolean addFollowee(String name) {
-
+        if (name == null) {
+            return false;
+        }
         if (fCount == 10) {
             return false;
         }
         if (follows(name)) {
             return false;
         }
-        if (name == null) {
-            return false;
-        }
+        
         follows[fCount] = name;
         fCount++;
 
@@ -93,11 +93,9 @@ public class User {
         if (name == null){
             return false; 
         }
-        if (!follows(name.toLowerCase())) {
-            return false;
-        }
+        
         for (int i = 0; i < fCount; i++) {
-            if (follows[i].equals(name.toLowerCase())) {
+            if (follows[i].equalsIgnoreCase(name)) {
                 follows[i] = follows[fCount - 1];
                 follows[fCount - 1] = null;
                 fCount--;
@@ -128,7 +126,11 @@ public class User {
      * (if two users follow each other, they are said to be "friends.")
      */
     public boolean isFriendOf(User other) {
-        if (follows(other.name) && other.follows(this.name)) {
+        if (other == null){
+            return false;
+        }
+
+        if (this.follows(other.name) && other.follows(this.name)) {
             return true;
         }
 
