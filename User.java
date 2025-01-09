@@ -71,6 +71,9 @@ public class User {
         if (name == null || name.equalsIgnoreCase(this.getName())) {
             return false;
         }
+        if (getfFollows() == null){
+            return false;
+        }
         if (fCount == 10) {
             return false;
         }
